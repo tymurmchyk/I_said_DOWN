@@ -19,17 +19,11 @@ To install the plugin add to your `lazy.nvim` configuration:
 { "tymurmchyk/I_said_DOWN", opts = { turnoff_height = 21 } }
 ```
 
-`'scrolloff'` option determines how many lines after the end may be scrolled,
-so it has to be set.
+`'scrolloff'` option determines how many lines after the end may be scrolled.
+Value of 0 turns the plugin off.
 
-The only parameter `turnoff_height` is the window height at and after which the
-plugin stops inserting empty lines after the end-of-file. For smaller buffers
-this functionality is inconvenient.
+Parameter `turnoff_height` determines the minimal window height for the plugin
+to work. Useful for smaller buffers because overscrolling becomes inconvenient.
 
-If set to -1, the actual value is the same as `'scrolloff'` option.
-Value of 0 or 1 makes the scrolling always possible.
-Bigger values turn the scrolling off at certain window height.
-
-**Beware**, wrapped lines take up multiple rows which causes the plugin to
-incorrectly calculate the number of lines below the last line, so there may be
-less lines than the `'scrolloff'` value.
+If `turnoff_height` is set to -1, the actual value is the same as `'scrolloff'`
+option. Value of 0 or 1 makes the overscrolling always possible.
