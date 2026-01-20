@@ -9,7 +9,7 @@ I don't like editing last lines when the buffer is long enough to not fit into
 the window, I have to look too low and that's uncomfortable. Maybe you have
 such problem too.
 
-_Plugin requires at 0.10.0 Neovim version!_
+**Plugin requires at least 0.10.0 Neovim version!**
 
 ## Setup
 
