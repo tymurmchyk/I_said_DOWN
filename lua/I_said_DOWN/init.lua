@@ -1,6 +1,12 @@
 local M = {
 	version = "1.1.0",
 	defaults = { turnoff_height = 11 },
+	error_messages = {
+		TURNOFF_HEIGHT_VALUE =
+			"turnoff_height must be in range [-1; +inf)!\n"
+			.. 'Change it in configuration or use'
+			.. '`:lua require("I_said_DOWN").opts.turnoff_height = __`'
+	},
 }
 
 function M.setup(options)
@@ -17,6 +23,14 @@ function M.setup(options)
 
 			local window_height = vim.api.nvim_win_get_height(0)
 			local turnoff_height = M.opts.turnoff_height == -1 and margin or M.opts.turnoff_height
+
+			if turnoff_height < -1 then
+				vim.notify_once(
+					M.error_messages.TURNOFF_HEIGHT_VALUE,
+					vim.log.ERROR
+				)
+				return
+			end
 
 			if window_height <= turnoff_height then
 				return

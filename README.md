@@ -9,15 +9,21 @@ I don't like editing last lines when the buffer is long enough to not fit into
 the window, I have to look too low and that's uncomfortable. Maybe you have
 such problem too.
 
+_Plugin requires at 0.10.0 Neovim version!_
+
+## Setup
+
 To install the plugin add to your `lazy.nvim` configuration:
 
 ```lua
 -- This, to use the default turnoff_height of 11:
-{ "tymurmchyk/I_said_DOWN" }
+"tymurmchyk/I_said_DOWN",
 
 -- Or this, to set your turnoff_height:
-{ "tymurmchyk/I_said_DOWN", opts = { turnoff_height = 21 } }
+{ "tymurmchyk/I_said_DOWN", opts = { turnoff_height = 21 } },
 ```
+
+## Use
 
 `'scrolloff'` option determines how many lines after the end may be scrolled.
 Value of 0 turns the plugin off.
@@ -27,3 +33,11 @@ to work. Useful for smaller buffers because overscrolling becomes inconvenient.
 
 If `turnoff_height` is set to -1, the actual value is the same as `'scrolloff'`
 option. Value of 0 or 1 makes the overscrolling always possible.
+
+You can change it at setup or with
+`require("I_said_DOWN").opts.turnoff_height = __` in your configuration.
+This expression can also be prepended with `:lua ` to use in command mode.
+
+Simply set these to your liking and scroll.
+
+You can `:checkhealth I_said_DOWN` to see if there are any issues.
