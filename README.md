@@ -23,6 +23,24 @@ To install the plugin add to your `lazy.nvim` configuration:
 { "tymurmchyk/I_said_DOWN", opts = { turnoff_height = 21 } },
 ```
 
+Plugin can also be installed with Neovim's built-in plugin manager:
+
+```lua
+-- Add the plugin's GitHub URL to `vim.pack.add` call:
+vim.pack.add({
+   -- Possible plugins...
+   "https://github.com/tymurmchyk/I_said_DOWN",
+   -- Possible plugins...
+})
+-- 
+
+-- Then setup it:
+require("I_said_DOWN").setup()
+
+-- Optionally pass a table to set `turnoff_height`:
+require("I_said_DOWN").setup({ turnoff_height = 21 })
+```
+
 ## Use
 
 `'scrolloff'` option determines how many lines after the end may be scrolled.
